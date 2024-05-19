@@ -61,7 +61,10 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-       - name: terraform delete
+      - name: terraform delete
         id: delete
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform delete -auto-approve -input=false -parallelism=1 planfile
+
+
+
