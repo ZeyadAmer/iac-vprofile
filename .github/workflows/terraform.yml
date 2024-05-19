@@ -64,7 +64,7 @@ jobs:
       - name: terraform delete
         id: delete
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform delete -auto-approve -input=false -parallelism=1 planfile
+        run: terraform apply -destroy -auto-approve -input=false -parallelism=1 planfile
 
 
 
